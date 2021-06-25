@@ -1,26 +1,24 @@
 import React from 'react';
+import '../index.css';
+const Wheel =(props)=> {
+   return (
+      <div id="wheel-container"  style={styles.wheelContainer}>
+        <div id='wheel' style={styles.wheel}>
+          <div onClick={()=>props.backbtn()} style = {styles.Menu}><b>Menu</b></div>
+          <div style = {styles.backwardBtn}><i className="fas fa-fast-backward"></i></div>
+          <div style = {styles.forwardBtn}><i className="fas fa-fast-forward"></i></div>
+          <div style = {styles.playBtn}><i className="fas fa-play"></i><i className="fas fa-pause"></i></div>
+        </div>
+        <div onClick={()=>props.selectbtn()} style = {styles.selectBtn}></div>
+      </div>
+  );
 
-class Wheel extends React.Component{
-    render(){
-        return (
-           <div style={styles.wheelContainer}>
-             <div style={styles.wheel}>
-
-               <div style = {styles.Menu}><b>Menu</b></div>
-               <div style = {styles.backwardBtn}><i className="fas fa-fast-backward"></i></div>
-               <div style = {styles.forwardBtn}><i className="fas fa-fast-forward"></i></div>
-               <div style = {styles.playBtn}><i className="fas fa-play"></i><i className="fas fa-pause"></i></div>
-               <div style = {styles.selectBtn}></div>
-
-             </div>
-           </div>
-        );
-    };
 };
 
 const styles = {
     wheelContainer:{
-        width: 200,
+      position:"relative",
+        width: 220,
         height: 150,
         backgroundColor:'#ccc'
     },
@@ -58,7 +56,7 @@ const styles = {
         borderRadius: 50,
         position:'absolute',
         top:'25%',
-        left:'25%',
+        left:72.5,
         backgroundColor: '#777'
     }
 }

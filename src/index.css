@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#menu{
+  width:125px;
+  height:200px;
+  background-color:white;
+}
+#display{
+  width:220px;
+  height:200px;
+  background-color: rgb(158, 134, 134);
+}
+.list{
+  display: flex;
+  justify-content: space-between;
+  padding:10px;
+}
+.list i{
+  color:transparent;
+}
+.image img{
+  width:220px;
+  height:200px;
+}
+.active{
+  color:white;
+  background-color: blue;
+}
+.active i{
+   color:white;
+}
+/* #wheel-container{
+  margin:auto;
+} */
