@@ -1,6 +1,9 @@
 import React from 'react';
-import Wheel from './Components/Wheel';
+
+import Navbar from './Components/Navbar';
 import Screen from './Components/Screen';
+import Wheel from './Components/Wheel';
+
 import ZingTouch from 'zingtouch';
 
 class App extends React.Component {
@@ -130,6 +133,13 @@ class App extends React.Component {
     const {menuItems,tracker,onMenu}=this.state;
     return (
       <div className="App">
+        <Navbar 
+         menuItems = {menuItems} 
+         tracker = {tracker} 
+         onMenu = {onMenu}
+        //  title={onMenu===0?'Ipod':menuItems[tracker[onMenu-1]+1].title}
+        />
+        
         <Screen  
            menuItems = {menuItems} 
            tracker = {tracker} 

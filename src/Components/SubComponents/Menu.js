@@ -3,9 +3,7 @@ const Menu = (props)=>{
     const selectedOption = tracker[onMenu];
     return ( 
         <div id="menu">
-            <div className='list'>
-                <b>{menu.title}</b>
-            </div>
+           
             <div>
                 {menu.list.map((option)=>{
                     return(

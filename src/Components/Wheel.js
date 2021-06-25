@@ -1,5 +1,5 @@
 import React from 'react';
-import '../index.css';
+
 const Wheel =(props)=> {
    return (
       <div id="wheel-container"  style={styles.wheelContainer}>
@@ -8,8 +8,8 @@ const Wheel =(props)=> {
           <div style = {styles.backwardBtn}><i className="fas fa-fast-backward"></i></div>
           <div style = {styles.forwardBtn}><i className="fas fa-fast-forward"></i></div>
           <div style = {styles.playBtn}><i className="fas fa-play"></i><i className="fas fa-pause"></i></div>
+          <div onClick={()=>props.selectbtn()} style = {styles.selectBtn}></div>
         </div>
-        <div onClick={()=>props.selectbtn()} style = {styles.selectBtn}></div>
       </div>
   );
 
@@ -17,8 +17,8 @@ const Wheel =(props)=> {
 
 const styles = {
     wheelContainer:{
-      position:"relative",
-        width: 220,
+        padding : '10px',
+        width: 280,
         height: 150,
         backgroundColor:'#ccc'
     },
@@ -27,7 +27,7 @@ const styles = {
       height:150,
       margin:'auto',
       borderRadius: '100%',
-      position:'Relative',
+      position:'relative',   
       backgroundColor:'white'
     },
     Menu:{
@@ -46,6 +46,7 @@ const styles = {
       left:10
     },
     playBtn:{
+      fontSize:'13px',
       position:'absolute',
       bottom:10,
       left:65
@@ -56,7 +57,7 @@ const styles = {
         borderRadius: 50,
         position:'absolute',
         top:'25%',
-        left:72.5,
+        left:"25%",
         backgroundColor: '#777'
     }
 }
