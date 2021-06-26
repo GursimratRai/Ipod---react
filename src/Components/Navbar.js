@@ -1,10 +1,7 @@
 import React from "react";
+import '../css/navbar.css';
 
 class Navbar extends React.Component{
-
-    constructor(props){
-        super(props);
-    }
 
     getTitle = () => {
         const {onMenu,menuItems,tracker} = this.props;
@@ -24,7 +21,7 @@ class Navbar extends React.Component{
             <div id="navbar">
             <div><i class="fas fa-wifi"></i></div>
             <div>{this.getTitle()}</div>
-            <div><i class="fas fa-battery-three-quarters"></i></div>
+            <div><img style={{height:25}} src='https://image.flaticon.com/icons/png/512/3103/3103446.png' alt='battery' /></div>
             </div>
         )
     }

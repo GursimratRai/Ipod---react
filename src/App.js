@@ -1,155 +1,175 @@
-import React from 'react';
+import React from "react";
 
-import Navbar from './Components/Navbar';
-import Screen from './Components/Screen';
-import Wheel from './Components/Wheel';
+import Screen from "./Components/Screen";
+import Wheel from "./Components/Wheel";
 
-import ZingTouch from 'zingtouch';
+import ZingTouch from "zingtouch";
+import "./css/pad.css";
 
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      menuItems : [{
-        //main menu
-         title : "Ipod.js",
-         list : [{name:"Photos",id:0},{name:"Music",id:1},{name:"Games",id:2},{name:"Settings",id:3}],
-      },{
-        //menu for photos
-        title : "Photos",
-        list : [{name:"Wallpapers",id:0},{name:"Covers",id:1}],
-     },{
-       //menu for music 
-        title : "Music",
-        list : [{name:"All Songs",id:0},{name:"Favourite",id:1},{name:"Albums",id:2},{name:"Genres",id:3}],
-     },
-     {
-       //menu for games
-        title : "Games",
-        list : [{name:"Snake",id:0},{name:"Soduko",id:1}],
-     },
-     {
-       //menu for settings
-        title : "Settings",
-        list : [{name:"About",id:0},{name:"Date&Time",id:1}],
-    }],
-    //Array used for navigating through different pages/menu's of the ipod
-    //indexes defines the current page 
-    //values defines the active class on the menu.
-    tracker : [0,0,0],
-    
-    //used for track of current page/menu shown on the display
-    onMenu :0,
-    
-  }
-    //function to change the menu
-    this.changeMenu = this.changeMenu.bind(this);
+      menuItems: [
+        {
+          //main menu
+          title: "Ipod.js",
+          list: [
+            { name: "Photos", id: 0 },
+            { name: "Music", id: 1 },
+            { name: "Games", id: 2 },
+            { name: "Settings", id: 3 },
+          ],
+        },
+        {
+          //menu for photos
+          title: "Photos",
+          list: [
+            { name: "All Photos", id: 0 },
+            { name: "Favourites", id: 1 },
+          ],
+        },
+        {
+          //menu for music
+          title: "Music",
+          list: [
+            { name: "Now Playing", id: 0 },
+            { name: "Playlist", id: 1 },
+            { name: "Artists", id: 2 },
+            { name: "Audiobooks", id: 3 },
+          ],
+        },
+        {
+          //menu for games
+          title: "Games",
+          list: [
+            { name: "Pac Man", id: 0 },
+            { name: "Sonic", id: 1 },
+          ],
+        },
+        {
+          //menu for settings
+          title: "Settings",
+          list: [
+            { name: "About", id: 0 },
+            { name: "Theme", id: 1 },
+            { name: "Wallpaper", id: 2 },
+          ],
+        },
+      ],
+      //Array used for navigating through different pages/menu's of the ipod
+      //indexes defines the current page
+      //values defines the active class of the menu.
+      tracker: [0, 0, 0],
+
+      //used for track current page/menu shown on the display.
+      onMenu: 0,
+    };
     //used to detect the change in angle while rotation of the wheeel
     this.angle = 0;
   }
 
-  componentDidMount(){
-    const wheel = document.getElementById('wheel');
+  componentDidMount() {
+    const wheel = document.getElementById("wheel");
     const region = new ZingTouch.Region(wheel);
-    region.bind(wheel, "rotate", (event)=>{
+    region.bind(wheel, "rotate", (event) => {
       this.move(event);
     });
   }
 
   //function for moving forward on the particular option seleted
-  selectbtn = ()=>{
-    const nextMenu= this.state.onMenu<2?this.state.onMenu+1:2;
+  selectbtn = () => {
+    const nextMenu = this.state.onMenu < 2 ? this.state.onMenu + 1 : 2;
     this.setState({
-      onMenu : nextMenu,
-    })
-  }
-
-  //function for travelling back 
-  backbtn = ()=>{
-      const previousMenu = (this.state.onMenu>0?this.state.onMenu-1:0)%3;
-      this.setState({
-        onMenu : previousMenu,
-       })
+      onMenu: nextMenu,
+    });
   };
 
-  //function used to change/update the tracker array 
-  changeMenu = (currentMenu,updatedTracker)=>{    
-      this.setState({
-        onMenu : currentMenu,
-        tracker : updatedTracker
-      });
+  //function for travelling back
+  backbtn = () => {
+    const { tracker, onMenu } = this.state;
+
+    const updatedtracker = tracker.map((value, index) => {
+      if (index === onMenu) {
+        return 0;
+      } else {
+        return value;
+      }
+    });
+
+    const previousMenu = (onMenu > 0 ? onMenu - 1 : 0) % 3;
+
+    this.setState({
+      onMenu: previousMenu,
+      tracker: updatedtracker,
+    });
   };
 
-  move = (event)=>{
+  //function used to change/update the tracker array
+  changeMenu = (currentMenu, updatedTracker) => {
+    this.setState({
+      onMenu: currentMenu,
+      tracker: updatedTracker,
+    });
+  };
 
-    if(this.state.onMenu>=2){
+  //function used to detect any motion on the wheel
+  move = (event) => {
+    const { onMenu, menuItems, tracker } = this.state;
+
+    if (onMenu >= 2) {
       return;
     }
+
     let size = 4;
-    if(this.state.onMenu>0){
-      size = this.state.menuItems[this.state.tracker[this.state.onMenu-1]+1].list.length;
+
+    //find size of list.
+    if (onMenu > 0) {
+      size = menuItems[tracker[onMenu - 1] + 1].list.length;
     }
- 
-      if (event.detail.distanceFromOrigin === 0) {
-        this.angle = event.detail.angle;
+
+    if (event.detail.distanceFromOrigin === 0) {
+      this.angle = event.detail.angle;
+    }
+
+    if (Math.abs(this.angle - event.detail.angle) > 15) {
+      this.angle = Math.abs(event.detail.angle);
+
+      if (event.detail.distanceFromLast === 0) {
+        return;
+      } else if (event.detail.distanceFromLast > 0) {
+        // rotation function for clockwise direction
+        const updatedTracker = tracker.map((select, index) => {
+          if (index === onMenu) {
+            return (select + 1) % size;
+          } else {
+            return select;
+          }
+        });
+
+        this.changeMenu(onMenu, updatedTracker);
+      } else if (event.detail.distanceFromLast < 0) {
+        // rotation function for anti-clockwise direction
+        const updatedTracker = tracker.map((select, index) => {
+          if (index === onMenu) {
+            return (select - 1 < 0 ? size - 1 : select - 1) % size;
+          } else {
+            return select;
+          }
+        });
+        this.changeMenu(onMenu, updatedTracker);
       }
-
-      // rotation function for clockwise direction
-      if (Math.abs(this.angle - event.detail.angle) > 15) {
-
-        this.angle = Math.abs(event.detail.angle);
-
-        if (event.detail.distanceFromLast === 0) {
-          return;
-        } 
-        else if (event.detail.distanceFromLast > 0) {
-                
-          const updatedTracker = this.state.tracker.map((select,index)=>{
-            if(index === this.state.onMenu){      
-              return (select+1)%size;
-            }
-            else{
-              return select;
-            }
-          });
-
-          this.changeMenu(this.state.onMenu,updatedTracker);
-        
-        } else if (event.detail.distanceFromLast < 0) {
-          const updatedTracker = this.state.tracker.map((select,index)=>{
-            if(index === this.state.onMenu){
-                return (select-1<0?size-1:select-1)%size;
-            }
-            else{
-              return select;
-            }
-          });
-          this.changeMenu(this.state.onMenu,updatedTracker);
-        } 
     }
-}
+  };
 
-  render(){
-    const {menuItems,tracker,onMenu}=this.state;
+  render() {
+    const { menuItems, tracker, onMenu } = this.state;
     return (
       <div className="App">
-        <Navbar 
-         menuItems = {menuItems} 
-         tracker = {tracker} 
-         onMenu = {onMenu}
-        //  title={onMenu===0?'Ipod':menuItems[tracker[onMenu-1]+1].title}
-        />
-        
-        <Screen  
-           menuItems = {menuItems} 
-           tracker = {tracker} 
-           onMenu = {onMenu}
-        />
-
-        <Wheel 
-          selectbtn = {this.selectbtn} 
-          backbtn = {this.backbtn} 
-        />
+        <div id="pad">
+          <Screen menuItems={menuItems} tracker={tracker} onMenu={onMenu} />
+          <Wheel selectbtn={this.selectbtn} backbtn={this.backbtn} />
+        </div>
       </div>
     );
   }

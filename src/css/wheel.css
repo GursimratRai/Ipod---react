@@ -1,0 +1,53 @@
+
+#wheel-container {
+    padding : 10px;
+    width: 280px;
+    height: 150px;
+}
+
+#wheel {
+    color:rgb(180,180,180);
+    width: 150px;
+    height:150px;
+    margin:auto;
+    border-radius: 100%;
+    position:relative;   
+    border:1px solid grey;
+    background-color:white;
+}
+
+#menubtn {
+    position:absolute;
+    top:10px;
+    left:53px;
+}
+
+#forwardbtn {
+    position:absolute;
+    top:65px;
+    right:10px;
+}
+
+#backwardbtn {
+    position:absolute;
+    top:65px;
+    left:10px;
+}
+
+#playBtn {
+    font-size:13px;
+    position:absolute;
+    bottom:10px;
+    left:65px;
+}
+
+#selectBtn {
+    width:75px;
+    height:75px;
+    border-radius: 50px;
+    position:absolute;
+    top:25%;
+    left:25%;
+    box-shadow:inset 0 0 20px 3px grey;
+    background-color:rgb(210,210,210);
+}
