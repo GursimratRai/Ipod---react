@@ -43,7 +43,7 @@ class App extends React.Component {
           //menu for games
           title: "Games",
           list: [
-            { name: "Pac Man", id: 0 },
+            { name: "Pac man", id: 0 },
             { name: "Sonic", id: 1 },
           ],
         },
@@ -51,9 +51,7 @@ class App extends React.Component {
           //menu for settings
           title: "Settings",
           list: [
-            { name: "About", id: 0 },
-            { name: "Theme", id: 1 },
-            { name: "Wallpaper", id: 2 },
+            { name: "About", id: 0 }
           ],
         },
       ],
