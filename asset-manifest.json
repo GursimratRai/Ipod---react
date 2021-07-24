@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Ipod-classic/static/css/main.18333113.chunk.css",
+    "main.js": "/Ipod-classic/static/js/main.d4d1fb9b.chunk.js",
+    "main.js.map": "/Ipod-classic/static/js/main.d4d1fb9b.chunk.js.map",
+    "runtime-main.js": "/Ipod-classic/static/js/runtime-main.d2b47e6a.js",
+    "runtime-main.js.map": "/Ipod-classic/static/js/runtime-main.d2b47e6a.js.map",
+    "static/js/2.2fd8989e.chunk.js": "/Ipod-classic/static/js/2.2fd8989e.chunk.js",
+    "static/js/2.2fd8989e.chunk.js.map": "/Ipod-classic/static/js/2.2fd8989e.chunk.js.map",
+    "index.html": "/Ipod-classic/index.html",
+    "static/css/main.18333113.chunk.css.map": "/Ipod-classic/static/css/main.18333113.chunk.css.map",
+    "static/js/2.2fd8989e.chunk.js.LICENSE.txt": "/Ipod-classic/static/js/2.2fd8989e.chunk.js.LICENSE.txt",
+    "static/media/Pac-man.e942362c.png": "/Ipod-classic/static/media/Pac-man.e942362c.png",
+    "static/media/artists.e14614ac.jpg": "/Ipod-classic/static/media/artists.e14614ac.jpg",
+    "static/media/audiobooks.1cf0b9f6.jpg": "/Ipod-classic/static/media/audiobooks.1cf0b9f6.jpg",
+    "static/media/background.97e9f86d.jpg": "/Ipod-classic/static/media/background.97e9f86d.jpg",
+    "static/media/display.css": "/Ipod-classic/static/media/bg.fb89b079.jfif",
+    "static/media/favourites.e580db29.png": "/Ipod-classic/static/media/favourites.e580db29.png",
+    "static/media/nowPlaying.388e8fe4.PNG": "/Ipod-classic/static/media/nowPlaying.388e8fe4.PNG",
+    "static/media/playlist.6068e21a.PNG": "/Ipod-classic/static/media/playlist.6068e21a.PNG",
+    "static/media/wallpaper.bf09bf18.jpg": "/Ipod-classic/static/media/wallpaper.bf09bf18.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d2b47e6a.js",
+    "static/js/2.2fd8989e.chunk.js",
+    "static/css/main.18333113.chunk.css",
+    "static/js/main.d4d1fb9b.chunk.js"
+  ]
+}
