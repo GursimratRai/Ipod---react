@@ -1,3 +1,32 @@
+html{
+  background-size: 100% 100vh;
+  background-image: url('../assets/display/bg.jfif');
+}
+
+/* lock icon in lockscreen */
+.lock-display{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.3;
+  width:300px;
+  height: 130px;
+  background-color: white;
+  font-size:100px;
+}
+
+/* below lock icon text on lockscreen */
+.bottom-div-lock{
+  width:300px;
+  height: 34px;
+  background-color: #E3F2FD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+/* Screen container below navbar */
 #display-container{
     overflow: hidden;
     border-radius: 10px;
@@ -5,6 +34,7 @@
   
   }
 
+/* Screen below navbar */
 #display{
     width:300px;
     height:164px;

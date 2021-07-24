@@ -1,10 +1,11 @@
-#navbar{
-    width:290px;
-    display: flex;
-    align-items: center;
-    padding:0px 5px;
-    justify-content: space-between;
-    background-color: rgb(104, 98, 98);
-    box-shadow: inset 0px 0px 10px 3px rgb(126, 121, 121);
+/* bar indicating flow of motion, battery , icon */
+#navbar {
+  width: 290px;
+  display: flex;
+  color: rgb(203, 210, 218);
+  align-items: center;
+  padding: 0px 5px;
+  justify-content: space-between;
+  background-color: rgb(104, 98, 98);
+  box-shadow: inset 0px 0px 10px 3px rgb(126, 121, 121);
 }
-  

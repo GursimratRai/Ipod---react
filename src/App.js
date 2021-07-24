@@ -14,45 +14,27 @@ class App extends React.Component {
         {
           //main menu
           title: "Ipod.js",
-          list: [
-            { name: "Photos", id: 0 },
-            { name: "Music", id: 1 },
-            { name: "Games", id: 2 },
-            { name: "Settings", id: 3 },
-          ],
+          list: ["Photos", "Music", "Games", "Settings"],
         },
         {
           //menu for photos
           title: "Photos",
-          list: [
-            { name: "All Photos", id: 0 },
-            { name: "Favourites", id: 1 },
-          ],
+          list: ["All Photos", "Favourites"],
         },
         {
           //menu for music
           title: "Music",
-          list: [
-            { name: "Now Playing", id: 0 },
-            { name: "Playlist", id: 1 },
-            { name: "Artists", id: 2 },
-            { name: "Audiobooks", id: 3 },
-          ],
+          list: ["Now Playing", "Playlist", "Artists", "Audiobooks"],
         },
         {
           //menu for games
           title: "Games",
-          list: [
-            { name: "Pac man", id: 0 },
-            { name: "Sonic", id: 1 },
-          ],
+          list: ["Pac man", "Sonic"],
         },
         {
           //menu for settings
           title: "Settings",
-          list: [
-            { name: "About", id: 0 }
-          ],
+          list: ["About"],
         },
       ],
       //Array used for navigating through different pages/menu's of the ipod
@@ -61,7 +43,7 @@ class App extends React.Component {
       tracker: [0, 0, 0],
 
       //used for track current page/menu shown on the display.
-      onMenu: 0,
+      onMenu: -1,
     };
     //used to detect the change in angle while rotation of the wheeel
     this.angle = 0;

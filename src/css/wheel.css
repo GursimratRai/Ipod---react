@@ -1,10 +1,11 @@
-
+/* outermost container of the wheel component */
 #wheel-container {
     padding : 10px;
     width: 280px;
     height: 150px;
 }
 
+/* inner wheel with all icons i.e. menu,forward,backward,pause/play */
 #wheel {
     color:rgb(180,180,180);
     width: 150px;
@@ -41,6 +42,7 @@
     left:65px;
 }
 
+/* innermost  selection button */
 #selectBtn {
     width:75px;
     height:75px;

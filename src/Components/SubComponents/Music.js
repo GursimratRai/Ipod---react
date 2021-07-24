@@ -1,9 +1,11 @@
 import React from 'react';
+
 import nowPlaying from '../../assets/music/nowPlaying.PNG';
 import playlist from '../../assets/music/playlist.PNG';
 import artist from '../../assets/music/artists.jpg';
 import audiobooks from '../../assets/music/audiobooks.jpg';
 
+// display the selected item from music menu
 class Music extends React.Component{
    
     getPick = () => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/wheel.css'; 
 
+//bottom wheel component i.e. which is used to scroll on the menu.
 const Wheel =(props)=> {
    return (
       <div id="wheel-container">

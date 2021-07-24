@@ -1,6 +1,8 @@
 import React from "react";
 import "../css/navbar.css";
 
+//navbar which indicates the flow of motion on the ipod.
+//displays battery and wifi icon on the top left.
 class Navbar extends React.Component {
   getTitle = () => {
     const { onMenu, menuItems, tracker } = this.props;
@@ -9,8 +11,7 @@ class Navbar extends React.Component {
       case 1:
         return menuItems[tracker[onMenu - 1] + 1].title;
       case 2:
-        return menuItems[tracker[onMenu - 2] + 1].list[tracker[onMenu - 1]]
-          .name;
+        return menuItems[tracker[onMenu - 2] + 1].list[tracker[onMenu - 1]];
       default:
         return "Ipod";
     }
@@ -20,7 +21,7 @@ class Navbar extends React.Component {
     return (
       <div id="navbar">
         <div>
-          <i class="fas fa-wifi"></i>
+          <i className="fas fa-wifi"></i>
         </div>
         <div>{this.getTitle()}</div>
         <div>

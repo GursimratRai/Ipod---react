@@ -1,5 +1,6 @@
 import '../../css/settings.css';
 
+// display the setting's about  
 const Settings = (props)=>{
     return (
         <div id='about'>

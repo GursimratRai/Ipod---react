@@ -1,5 +1,6 @@
 import '../../css/menu.css';
 
+// display the menu items of the selected option
 const Menu = (props)=>{
     const {tracker,menu,onMenu}=props
     const selectedOption = tracker[onMenu];
@@ -7,9 +8,9 @@ const Menu = (props)=>{
         <div id='menu-container'>
             <div id="menu">            
                 <div>
-                    {menu.list.map((option)=>{
+                    {menu.list.map((option,index)=>{
                         return(
-                            <div className={`${option.id===selectedOption?'active list':'list'}`} key={option.id}><span>{option.name}</span><span><i class="fas fa-chevron-right"></i></span></div>
+                            <div className={`${index===selectedOption?'active list':'list'}`} key={index}><span>{option}</span><span><i className="fas fa-chevron-right"></i></span></div>
                         )     
                     })
                     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 
+import LockScreen from './LockScreen';
 import Menu from './SubComponents/Menu';
 import Photos from './SubComponents/Photos';
 import Music from './SubComponents/Music';
@@ -21,6 +22,7 @@ const Screen = (props) => {
                 onMenu = {onMenu}
              />
             <div id = "display">
+                {onMenu===-1 && <LockScreen />}
                 {onMenu===0 && <Menu menu = {menuItems[0]}  tracker = {tracker} onMenu = {onMenu} /> }
                 {onMenu===1 && level1===0 && <Menu menu = {menuItems[1]} tracker = {tracker} onMenu={onMenu} /> }
                 {onMenu===1 && level1===1 && <Menu menu = {menuItems[2]} tracker = {tracker} onMenu={onMenu} /> }
